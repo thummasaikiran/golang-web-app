@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Project - Sai Kiran Thumma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+            color: #93c5fd;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            padding: 2.5rem;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background: rgba(51, 65, 85, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #475569;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: #60a5fa;
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+
+        .tool-card h3 {
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: #1e293b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #334155;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#tools">DevOps Tools</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>DevOps Project</h1>
+            <p>A comprehensive DevOps implementation featuring a <span class="highlight">Golang web application</span> with end-to-end CI/CD pipeline.</p>
+            <p>This project demonstrates modern DevOps practices implemented from scratch to production deployment.</p>
+        </section>
+
+        <section id="about">
+            <h2>Project Overview</h2>
+            <p>This project showcases a complete DevOps workflow built and managed by <span class="highlight">Sai Kiran Thumma</span>. It includes containerization, orchestration, continuous integration, continuous deployment, and infrastructure as code practices.</p>
+            <p>The application is a production-ready Golang web service deployed on Kubernetes with automated pipelines for testing, building, and deployment.</p>
+        </section>
+
+        <section id="tools">
+            <h2>DevOps Tools & Technologies</h2>
+            <p>This project utilizes the following modern DevOps tools and technologies:</p>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🐙</div>
+                    <h3>Git</h3>
+                    <p>Version control system for source code management and collaboration</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">⚡</div>
+                    <h3>GitHub Actions</h3>
+                    <p>CI/CD automation for building, testing, and deployment pipelines</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">☸️</div>
+                    <h3>Kubernetes</h3>
+                    <p>Container orchestration for deployment, scaling, and management</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">☁️</div>
+                    <h3>Amazon EKS</h3>
+                    <p>Managed Kubernetes service on AWS for production workloads</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🚀</div>
+                    <h3>ArgoCD</h3>
+                    <p>GitOps continuous delivery tool for Kubernetes applications</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📦</div>
+                    <h3>Helm Charts</h3>
+                    <p>Package manager for Kubernetes applications and deployments</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🐳</div>
+                    <h3>Docker</h3>
+                    <p>Containerization platform for building and packaging applications</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📚</div>
+                    <h3>Docker Hub</h3>
+                    <p>Container image registry for storing and distributing Docker images</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🐧</div>
+                    <h3>Linux Environment</h3>
+                    <p>Ubuntu-based systems for development, testing, and production</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact & More Information</h2>
+            <p>For more details about this DevOps implementation or to discuss collaboration opportunities, please feel free to reach out.</p>
+            <p>This project represents a complete, production-ready DevOps pipeline showcasing best practices in modern software delivery.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 DevOps Project | Designed and Implemented by <span class="highlight">Sai Kiran Thumma</span></p>
+        <p>Complete CI/CD Pipeline with Golang, Kubernetes, and Cloud-Native Technologies</p>
+    </footer>
+</body>
+</html>
