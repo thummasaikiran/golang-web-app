@@ -60,6 +60,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        
+      - name: Verify DockerHub secrets exist
+        run: |
+          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
+            echo "❌ ERROR: DOCKERHUB_USERNAME secret is empty or not set!"
+            echo "Please add it in: Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          echo "✓ DOCKERHUB_USERNAME is set"
+          
+          if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
+            echo "❌ ERROR: DOCKERHUB_TOKEN secret is empty or not set!"
+            echo "Please add it in: Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          echo "✓ DOCKERHUB_TOKEN is set"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -70,13 +86,17 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push action
+      - name: Build and Push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{ github.run_id }}
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{ github.run_id }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
