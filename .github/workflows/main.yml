@@ -60,15 +60,25 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      
+      - name: Debug secrets
+        run: |
+          echo "Checking DockerHub username..."
+          echo "DOCKERHUB_USERNAME length: ${#DOCKERHUB_USERNAME}"
+          echo "DOCKERHUB_USERNAME value: '${{ secrets.DOCKERHUB_USERNAME }}'"
+          echo "GITHUB_RUN_ID: ${{ github.run_id }}"
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         
       - name: Verify DockerHub secrets exist
         run: |
           if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
             echo "❌ ERROR: DOCKERHUB_USERNAME secret is empty or not set!"
             echo "Please add it in: Settings → Secrets and variables → Actions"
+            echo "Go to: https://github.com/thummassaikiran/golang-web-app/settings/secrets/actions"
             exit 1
           fi
-          echo "✓ DOCKERHUB_USERNAME is set"
+          echo "✓ DOCKERHUB_USERNAME is set: '${{ secrets.DOCKERHUB_USERNAME }}'"
           
           if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
             echo "❌ ERROR: DOCKERHUB_TOKEN secret is empty or not set!"
